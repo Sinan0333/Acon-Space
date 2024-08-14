@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { validateDetails } from '../Validation/pageTwoValidation'
+import axios from 'axios'
 
 function PageTwo() {
 
     const navigate = useNavigate()
+    const [error,setError] = useState("")
 
     const [companyName,setCompanyName] = useState("")
     const [ownerName,setOwnerName] = useState("")
@@ -26,7 +29,53 @@ function PageTwo() {
     const [description,setDescription] = useState("")
 
     const handleSubmit = ()=>{
-        navigate("/company-documents")
+
+        const errors = validateDetails(companyName,
+            ownerName,
+            mailingAddress,
+            companyPhone,
+            gstNumber,
+            panNumber,
+            name,
+            designation,
+            email,
+            phone,
+            office,
+            country,
+            city,
+            pincode,
+            industry,
+            webUrl,
+            description,
+        )
+        if(Object.keys(errors).length === 0){
+            setError("")
+            // Calling  the api
+            // axios.post("api/companyDetails",{
+            //     companyName,
+            //     ownerName,
+            //     mailingAddress,
+            //     companyPhone,
+            //     gstNumber,
+            //     panNumber,
+            //     name,
+            //     designation,
+            //     email,
+            //     phone,
+            //     office,
+            //     country,
+            //     city,
+            //     pincode,
+            //     industry,
+            //     webUrl,
+            //     description
+            // }).then(()=>navigate("/company-documents"))
+            // .catch((err)=>console.log(err))
+            navigate("/company-documents")
+        }else{
+            const arrayOfErrors = Object.values(errors)
+            setError(arrayOfErrors)
+        }
     }
     
 
@@ -190,9 +239,9 @@ function PageTwo() {
                             />
                         </div>
                     </div>
+                <p className='text-red-500'>{error}</p>
                 </div>
-        
-                <div className="text-center mt-10">
+                <div className="text-center mt-10" >
                     <button type="submit" className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onClick={handleSubmit}>Next</button>
                 </div>
           </div>

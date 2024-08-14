@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { validateDocuments } from '../Validation/pageThreeValidation';
+import axios from 'axios';
 
 function PageThree() {
     const navigate = useNavigate()
+    const [error,setError] = useState("")
+
+    const [gstNumber,setGstNumber] = useState("")
+    const [panNumber,setPanNumber] = useState("")
+    const [tanNumber,setTanNumber] = useState("")
+    const [Agreement,setAgreement] = useState("")
+
 
     const handleSubmit = ()=>{
-        navigate("/confirm-details")
+
+        const errors = validateDocuments(gstNumber,panNumber,tanNumber,Agreement)
+
+        if(Object.keys(errors).length === 0){
+            setError("")
+            // Calling  the api
+            // axios.post("api/companyDocuments",{gstNumber,panNumber,tanNumber,Agreement}).then(()=>navigate("/confirm-details")).catch((err)=>console.log(err))
+            navigate("/confirm-details")
+        }else{
+            const arrayOfErrors = Object.values(errors)
+            setError(arrayOfErrors)
+        }
     }
     return (
         <div className="mx-auto bg-white rounded-md">
@@ -37,35 +57,83 @@ function PageThree() {
     
           <div className="grid grid-cols-2 gap-6 gap-x-20 mx-5 xl:mx-10 mt-16">
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">GST No.</label>
-              <div className="flex items-center relative">
-                <button className="bg-gray-700 text-white py-2 px-4 w-full max-w-32">Choose File</button>
-                <input type="text" className="border  border-gray-300 w-full py-2 px-4" placeholder="Upload GST" />
-              </div>
+                <label className="block text-gray-700 text-sm font-medium mb-2">GST No.</label>  
+                <div className="flex items-center">
+                    <label className="bg-gray-800 text-white py-2 px-4 rounded-l cursor-pointer w-36">
+                        <input
+                        type="file"
+                        className="hidden"
+                        onChange={(e)=>setGstNumber(e.target.files[0])}
+                        />
+                        Choose File
+                    </label>
+                    <input
+                        type="text"
+                        className="border border-gray-300 rounded-r py-2 px-4 w-full text-gray-500"
+                        placeholder="Upload GST"
+                        readOnly
+                    />
+                </div>
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">Company PAN Number</label>
-              <div className="flex items-center">
-              <button className="bg-gray-700 text-white py-2 px-4 w-full max-w-32">Choose File</button>
-                <input type="text" className="border border-gray-300 w-full py-2 px-4" placeholder="Upload PAN" />
-              </div>
+                <label className="block text-gray-700 text-sm font-medium mb-2">Company PAN Number</label>  
+                <div className="flex items-center">
+                    <label className="bg-gray-800 text-white py-2 px-4 rounded-l cursor-pointer w-36">
+                        <input
+                        type="file"
+                        className="hidden"
+                        onChange={(e)=>setPanNumber(e.target.files[0])}
+                        />
+                        Choose File
+                    </label>
+                    <input
+                        type="text"
+                        className="border border-gray-300 rounded-r py-2 px-4 w-full text-gray-500"
+                        placeholder="Upload GST"
+                        readOnly
+                    />
+                </div>
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">Company TAN Number</label>
-              <div className="flex items-center">
-                <button className="bg-gray-700 text-white py-2 px-4 w-full max-w-32">Choose File</button>
-                <input type="text" className="border border-gray-300 w-full py-2 px-4" placeholder="Upload TAN" />
-              </div>
+                <label className="block text-gray-700 text-sm font-medium mb-2">Company TAN Number</label>  
+                <div className="flex items-center">
+                    <label className="bg-gray-800 text-white py-2 px-4 rounded-l cursor-pointer w-36">
+                        <input
+                        type="file"
+                        className="hidden"
+                        onChange={(e)=>setTanNumber(e.target.files[0])}
+                        />
+                        Choose File
+                    </label>
+                    <input
+                        type="text"
+                        className="border border-gray-300 rounded-r py-2 px-4 w-full text-gray-500"
+                        placeholder="Upload GST"
+                        readOnly
+                    />
+                </div>
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">Agreement Document</label>
-              <div className="flex items-center">
-                <button className="bg-gray-700 text-white py-2 px-4 w-full max-w-32">Choose File</button>
-                <input type="text" className="border border-gray-300 rounded-md w-full py-2 px-4" placeholder="Upload Agreement Document" />
-              </div>
+                <label className="block text-gray-700 text-sm font-medium mb-2">Agreement Document</label>  
+                <div className="flex items-center">
+                    <label className="bg-gray-800 text-white py-2 px-4 rounded-l cursor-pointer w-36">
+                        <input
+                        type="file"
+                        className="hidden"
+                        onChange={(e)=>setAgreementDocument(e.target.files[0])}
+                        />
+                        Choose File
+                    </label>
+                    <input
+                        type="text"
+                        className="border border-gray-300 rounded-r py-2 px-4 w-full text-gray-500"
+                        placeholder="Upload GST"
+                        readOnly
+                    />
+                </div>
             </div>
+            <p className='text-red-500'>{error}</p>
           </div>
-    
           <div className="text-center mt-16">
             <button className="bg-orange-500 text-white py-2 px-8 rounded-md" onClick={handleSubmit}>NEXT</button>
           </div>
