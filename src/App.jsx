@@ -1,4 +1,4 @@
-import PageOne from "./components/PageOne"
+import PageTwo from "./components/PageTwo"
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <PageOne/>
+      <PageTwo/>
     </div>
   )
 }
