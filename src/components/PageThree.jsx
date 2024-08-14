@@ -4,7 +4,7 @@ function PageThree() {
     return (
         <div className="mx-auto bg-white rounded-md">
             <div className='w-full h-10 bg-slate-900 flex items-center justify-center'>
-                <h1 className='text-white text-center font-semibold'>Company Details</h1>
+                <h1 className='text-white text-center font-semibold'>Company Documents</h1>
             </div>
             <div className="w-[85%] h-32 mx-auto flex justify-center border-b-2 mb-4">
                 <div className='w-1/3 flex items-center'>
@@ -15,16 +15,16 @@ function PageThree() {
                     <hr className='w-full text-slate-900'/>
                 </div>
                 <div className='w-1/3 flex items-center'>
-                    <div className='w-52  text-center'>
+                    <div className='w-60  text-center'>
                         <div className='w-8 h-8 rounded-full bg-slate-900 text-white  flex justify-center items-center mx-auto'>2</div>
-                        <p className='mx-auto'>Company Details</p>
+                        <p className='mx-auto'>Company Documents</p>
                     </div>
                     <hr className='w-full text-slate-900'/>
                 </div>
                 <div className='flex items-center'>
                     <div className='w-52  text-center'>
                         <div className='w-8 h-8 rounded-full border-gray-950 border  flex justify-center items-center mx-auto'>3</div>
-                        <p className='mx-auto'>Company Details</p>
+                        <p className='mx-auto'>Confirm Details</p>
                     </div>
                 </div>
             </div>

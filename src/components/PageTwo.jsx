@@ -15,16 +15,16 @@ function PageTwo() {
                     <hr className='w-full text-slate-900'/>
                 </div>
                 <div className='w-1/3 flex items-center'>
-                    <div className='w-52  text-center'>
+                    <div className='w-60  text-center'>
                         <div className='w-8 h-8 rounded-full border-gray-950 border  flex justify-center items-center mx-auto'>2</div>
-                        <p className='mx-auto'>Company Details</p>
+                        <p className='mx-auto'>Company Documents</p>
                     </div>
                     <hr className='w-full text-slate-900'/>
                 </div>
                 <div className='flex items-center'>
                     <div className='w-52  text-center'>
                         <div className='w-8 h-8 rounded-full border-gray-950 border  flex justify-center items-center mx-auto'>3</div>
-                        <p className='mx-auto'>Company Details</p>
+                        <p className='mx-auto'>Confirm Details</p>
                     </div>
                 </div>
             </div>
