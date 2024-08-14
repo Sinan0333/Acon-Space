@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function PageOne() {
+    const navigate = useNavigate()
   return (
     <div className="min-h-screen bg-gray-100">
 
@@ -32,7 +34,7 @@ function PageOne() {
             <h2 className="text-2xl font-bold text-orange-500">Companies</h2>
             <div>
               <input type="text" className="border border-orange-500 rounded px-2 py-1 mr-2" placeholder="Search"/>
-              <button className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">Add Company</button>
+              <button className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600" onClick={() => navigate('/company-details')}>Add Company</button>
             </div>
           </div>
           

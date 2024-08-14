@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function PageThree() {
+    const navigate = useNavigate()
+
+    const handleSubmit = ()=>{
+        navigate("/confirm-details")
+    }
     return (
         <div className="mx-auto bg-white rounded-md">
             <div className='w-full h-10 bg-slate-900 flex items-center justify-center'>
@@ -61,7 +67,7 @@ function PageThree() {
           </div>
     
           <div className="text-center mt-16">
-            <button className="bg-orange-500 text-white py-2 px-8 rounded-md">NEXT</button>
+            <button className="bg-orange-500 text-white py-2 px-8 rounded-md" onClick={handleSubmit}>NEXT</button>
           </div>
         </div>
       );

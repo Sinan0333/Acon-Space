@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function PageTwo() {
+
+    const navigate = useNavigate()
+
+    const [companyName,setCompanyName] = useState("")
+    const [ownerName,setOwnerName] = useState("")
+    const [mailingAddress,setMailingAddress] = useState("")
+    const [companyPhone,setCompanyPhone] = useState("")
+    const [gstNumber,setGstNumber] = useState("")
+    const [panNumber,setPanNumber] = useState("")
+
+    const [name,setName] = useState("")
+    const [designation,setDesignation] = useState("")
+    const [email,setEmail] = useState("")
+    const [phone,setPhone] = useState("")
+
+    const [office,setOffice] = useState("")
+    const [country,setCountry] = useState("")
+    const [city,setCity] = useState("")
+    const [pincode,setPincode] = useState("")
+    const [industry,setIndustry] = useState("")
+    const [webUrl,setWebUrl] = useState("")
+    const [description,setDescription] = useState("")
+
+    const handleSubmit = ()=>{
+        navigate("/company-documents")
+    }
+    
+
     return (
         <div className="mx-auto bg-white rounded shadow pb-10">
             <div className='w-full h-10 bg-slate-900 flex items-center justify-center'>
@@ -33,42 +62,42 @@ function PageTwo() {
                 <div className="grid grid-cols-2 gap-x-8 mb-8 border-b-2 pb-8 ">
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Company Name</label>
-                        <input
+                        <input value={companyName} onChange={(e)=>setCompanyName(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Owner Name</label>
-                        <input
+                        <input value={ownerName} onChange={(e)=>setOwnerName(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Company Mailing Address</label>
-                        <input
+                        <input value={mailingAddress} onChange={(e)=>setMailingAddress(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
-                        <input
+                        <input value={companyPhone} onChange={(e)=>setCompanyPhone(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">GST No</label>
-                        <input
+                        <input value={gstNumber} onChange={(e)=>setGstNumber(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">PAN Number</label>
-                        <input
+                        <input value={panNumber} onChange={(e)=>setPanNumber(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
@@ -79,28 +108,28 @@ function PageTwo() {
                 <div className="grid grid-cols-2 gap-x-8 mb-8 border-b-2 pb-8">
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Name</label>
-                        <input
+                        <input value={name} onChange={(e)=>setName(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Designation</label>
-                        <input
+                        <input value={designation} onChange={(e)=>setDesignation(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Email ID</label>
-                        <input
+                        <input value={email} onChange={(e)=>setEmail(e.target.value)}
                         type="email"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
                     </div>
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
-                        <input
+                        <input value={phone} onChange={(e)=>setPhone(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
@@ -111,7 +140,7 @@ function PageTwo() {
                 <div className=" mb-8 ">
                     <div>
                         <label className="block text-gray-700 font-semibold mb-2">Office</label>
-                        <input
+                        <input value={office} onChange={(e)=>setOffice(e.target.value)}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded"
                         />
@@ -120,42 +149,42 @@ function PageTwo() {
                     <div className='grid grid-cols-2 gap-x-8'>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Country</label>
-                            <input
+                            <input value={country} onChange={(e)=>setCountry(e.target.value)}
                             type="text"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">City / State</label>
-                            <input
+                            <input value={city} onChange={(e)=>setCity(e.target.value)}
                             type="text"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Pin Code</label>
-                            <input
+                            <input value={pincode} onChange={(e)=>setPincode(e.target.value)}
                             type="text"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Industry</label>
-                            <input
+                            <input value={industry} onChange={(e)=>setIndustry(e.target.value)}
                             type="text"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Website URL</label>
-                            <input
+                            <input value={webUrl} onChange={(e)=>setWebUrl(e.target.value)}
                             type="url"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 font-semibold mb-2">Description</label>
-                            <input
+                            <input value={description} onChange={(e)=>setDescription(e.target.value)}
                             type="text"
                             className="w-full border border-gray-300 p-2 rounded"
                             />
@@ -164,7 +193,7 @@ function PageTwo() {
                 </div>
         
                 <div className="text-center mt-10">
-                    <button type="submit" className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">Next</button>
+                    <button type="submit" className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onClick={handleSubmit}>Next</button>
                 </div>
           </div>
         </div>

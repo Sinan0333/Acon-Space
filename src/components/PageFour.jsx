@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function PageFour() {
+    const navigate = useNavigate()
+
+    const handleSubmit = () => {
+        navigate("/")
+    }
     return (
         <div className=" mx-auto bg-white">
             <div className='w-full h-10 bg-slate-900 flex items-center justify-center'>
@@ -137,7 +143,7 @@ function PageFour() {
                 </div>
 
                 <div className="text-center mt-16 mb-16">
-                    <button className="bg-orange-500 text-white py-2 px-8 rounded-md">Confirm Details</button>
+                    <button className="bg-orange-500 text-white py-2 px-8 rounded-md" onClick={handleSubmit}>Confirm Details</button>
                 </div>
             </div>
         </div>
